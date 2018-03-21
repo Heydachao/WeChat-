@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>腾讯微信模拟</title>
+		<script src="js/mui.min.js"></script>
+		<link href="css/mui.min.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="fonts/iconfont.css">
+		<style type="text/css">
+			*{ margin: 0; padding: 0; box-sizing: border-box; }
+			ul, li{ list-style: none; }
+			body,html{ font-family: "微软雅黑"; background: #eee; }
+
+        /*index 头部*/
+			.mui-bar-nav{ background: #373a41; position: relative; height: 60px; line-height: 60px; box-shadow: 0 1px 6px #545454; }
+			.mui-bar-nav span{ color: #fff; font-size: 14px; }
+			.mui-icon.fl_r{	float: right; }
+            .mui-icon.fl_l{ float: left; }
+			.mui-bar-nav.mui-bar .mui-icon{	margin-right: 0; font-size: 36px; padding-top: 12px; overflow: hidden; }
+            .mui-icon.iconfont.icon-fanhui{ font-size: 28px; padding-top: 2%; /*border-right: 1px solid #2e3138; */margin-right: 2%; margin-top: 2%; padding-bottom: 5px; position: relative; }
+            .mui-icon.iconfont.icon-yuyin{ font-size: 24px; padding-top: 5%; padding-bottom: 5px; /*border-bottom: 1px solid #3f8d31;*/ }
+            .mui-icon.mui-icon-search.fl_l{ font-size: 26px; padding-top: 5%; line-height: 24px; padding-bottom: 5px; /*border-bottom: 1px solid #3f8d31;*/ }
+            .index_search_txt_span{ display: inline-block; width: 70%; height: 100%; }
+            .mui-bar-nav input.index_search_txt{ width: 100%; height: 35px; background: none; margin: 0; border: none; /*border-bottom: 1px solid #3f8d31; border-radius: 0;*/ padding: 0;  }
+            input.index_search_txt::-webkit-input-placeholder { /* WebKit, Blink, Edge */ color: #666; font-size: 16px; }
+            input.index_search_txt::-moz-placeholder { /* Mozilla Firefox 19+ */ color: #666; opacity: 1; font-size: 16px; }
+            input.index_search_txt:-ms-input-placeholder { /* Internet Explorer 10-11 */ color: #666; font-size: 16px; }
+            .mui-icon.iconfont.icon-fanhui a{ position: absolute; display: block; width: 100%; height: 100%; left: 0; top: 0; }
+            h5.title{ margin-top: 60px; padding: 10% 0; text-align: center; color: #aaa; font-size: 14px;  }
+            .menu_txt_list{ width: 60%; overflow: hidden; margin: 0 auto;  }
+            .menu_txt_list li{ width: 33.3%; float: left; border-right: 1px solid #ccc; font-size: 16px; text-align: center; margin: 8% 0; }
+            .menu_txt_list li.nobdr{ border-right: none; }
+            .menu_txt_list li a{ color: #33d616; display: block; }
+            .search_box{ height: 83%; border-bottom: 1px solid #3f8d31; display: inline-block; overflow: hidden; width: 83%; }
+            
+            
+		</style>
+		
+		<script type="text/javascript" charset="utf-8">
+			mui.init();
+		</script>
+	
+	</head>
+	
+	<body>
+		<div>
+		<!--头部导航栏-->
+			<header class="mui-bar mui-bar-nav" style="position: fixed;">
+				<span class="mui-icon iconfont icon-fanhui fl_l"><a href="javascript:history.back(-1);"></a></span>
+			    <p class="search_box">
+	                <span class="mui-icon iconfont icon-yuyin fl_r"></span>
+	                <span class="index_search_txt_span fl_l"><input type="text" placeholder="搜索" class="index_search_txt"></span>
+	                <span class="mui-icon mui-icon-search fl_l"></span>
+			    </p>
+			</header>
+
+            <h5 class="title">搜索指定内容</h5>
+            <ul class="menu_txt_list">
+                <li><a href="#">朋友圈</a></li>
+                <li><a href="#">资讯</a></li>
+                <li class="nobdr"><a href="#">公众号</a></li>
+                <li><a href="#">小说</a></li>
+                <li><a href="#">音乐</a></li>
+                <li class="nobdr"><a href="#">表情</a></li>
+            </ul>
+
+        </div>
+
+		
+	</body>
+</html>

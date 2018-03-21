@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>腾讯微信模拟</title>
+		<script src="js/mui.min.js"></script>
+		<link href="css/mui.min.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="fonts/iconfont.css">
+		<style type="text/css">
+			*{ margin: 0; padding: 0; box-sizing: border-box; }
+			ul, li{ list-style: none; }
+			body,html{ font-family: "微软雅黑"; background: #eee; }
+			
+		/*index 头部*/
+            .mui-bar-nav{ background: #373a41; position: relative; height: 60px; line-height: 60px; box-shadow: 0 1px 6px #545454; }
+            .mui-bar-nav span{ color: #fff; font-size: 14px; }
+            .mui-icon.fl_r{	float: right; }
+            .mui-bar-nav.mui-bar .mui-icon{	margin-right: 0; font-size: 36px; padding-top: 12px; }
+            .mui-icon.mui-icon-search.fl_r{ font-size: 24px; padding-top: 18px; }
+            .mui-icon.mui-icon-search{ font-size: 16px; line-height: 24px; }
+            .mui-media-body{ font-size: 16px; color: #444; line-height: 42px; }
+		/*底部导航*/
+			.icon-tongxunlu.iconfont{ font-size: 28px; }
+            .icon-faxiantansuoluopan.iconfont{ font-size: 18px; padding: 4px 0 0; }
+            .mui-bar-tab .mui-tab-item.mui-active { color: #2ba246; }
+		/*右侧首字母导航*/
+			.tx_right_bar{ width: 20px; position: fixed; right: 0; top: 44px; }
+			.tx_right_bar li{ text-align: center; font-size: 13px; line-height: 1.7; }
+			.mui-icon.mui-icon-arrowthinup{ font-size: 20px; position: relative; }
+			.mui-icon.mui-icon-star{ font-size: 16px; }
+            .tx_right_bar li span{ position: relative; display: block; }
+            .tx_right_bar li span a{ position: absolute; display: block; width: 20px; height: 20px; left: 0; top: 0; }
+        /*细节优化*/
+			.mui-table-view-cell:after{ right: 20px; background-color: #e4e4e4; }
+			.mui-table-view-cell.ccc:after{	background-color: #ccc; }
+			.bg_line_row{ padding-left: 4%;	background: #eee; line-height: 20px; font-size: 14px; color: #999; }
+			.mui-table-view{ margin-bottom: 50px; margin-top: 60px; }
+        /*下拉列表菜单*/
+            .drop-down-menu{ width: 52%; background: #373a41; position: fixed; right: 10px; top: 60px; box-shadow: 0 1px 15px #717171; display: none; }
+            .mui-table-view.drop-menu{ background: #373a41; color: #fff; margin: 0; }
+            .mui-table-view.drop-menu li{ font-size: 16px; padding: 16px 15px; }
+            .mui-table-view.drop-menu span{ font-size: 22px; margin: 0 15px 0 5px; }
+            span.iconfont.icon-tianjiahaoyou{ font-size: 30px; margin: 0 15px 0 2px; line-height: 22px; vertical-align: -4px; }
+            
+            
+		/*自己的样式叠加*/
+			.mui-table-view-cell.mui-media{ padding: 3% 4%; }
+        </style>
+		
+		<script type="text/javascript" charset="utf-8">
+			mui.init();
+		</script>
+
+	</head>
+
+	<body>
+		<div>
+		<!--头部导航栏-->
+			<header class="mui-bar mui-bar-nav" style="position: fixed;">
+			    <span class="bar_nav_txt_left">微信</span>
+				<span class="mui-icon mui-icon-plusempty fl_r" onclick="drop_menu_show()"></span>
+				<span class="mui-icon mui-icon-search fl_r" onclick="window.location.href='index_search.html'"></span>
+			</header>
+			
+		<!--好友列表-->
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell mui-media ccc" id="zhiding">
+                    <a href="javascript:;">
+                        <img class="mui-media-object mui-pull-left" src="img/tx_photo_01.jpg">
+                        <div class="mui-media-body">
+                            <span>新的朋友</span>
+                        </div>
+                    </a>
+			    </li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/tx_photo_02.jpg">
+						<div class="mui-media-body">
+							<span>群聊</span>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/tx_photo_03.jpg">
+						<div class="mui-media-body">
+							<span>标签</span>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media" id="xingbiao">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/tx_photo_04.jpg">
+						<div class="mui-media-body">
+							<span>公众号</span>
+						</div>
+					</a>
+				</li>
+				<li class="bg_line_row">星标朋友</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/tx_photo_05.jpg">
+						<div class="mui-media-body">
+							<span>蓉儿</span>
+						</div>
+					</a>
+				</li>
+				
+				<li class="bg_line_row" id="A">A</li>
+				<li class="mui-table-view-cell mui-media ccc">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/tx_photo_06.jpg">
+						<div class="mui-media-body">
+							<span>啊</span>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/tx_photo_07.jpg">
+						<div class="mui-media-body">
+							<span>A机器人~王二狗</span>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/tx_photo_08.jpg">
+						<div class="mui-media-body">
+							<span>A机器人~王二狗2号</span>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/tx_photo_09.jpg">
+						<div class="mui-media-body">
+							<span>A机器人~小梦</span>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/tx_photo_10.jpg">
+						<div class="mui-media-body">
+							<span>A万千宠爱</span>
+						</div>
+					</a>
+				</li>
+				
+				<li class="bg_line_row" id="B">B</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/tx_photo_11.jpg">
+						<div class="mui-media-body">
+							<span>斑马</span>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/tx_photo_12.jpg">
+						<div class="mui-media-body">
+							<span>鲍梦迪</span>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/tx_photo_13.jpg">
+						<div class="mui-media-body">
+							<span>包子</span>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/tx_photo_14.jpg">
+						<div class="mui-media-body">
+							<span>包子~2号</span>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/tx_photo_15.jpg">
+						<div class="mui-media-body">
+							<span>表叔</span>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/tx_photo_16.jpg">
+						<div class="mui-media-body">
+							<span>表叔</span>
+						</div>
+					</a>
+				</li>
+				
+				<li class="bg_line_row" id="C">C</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/tx_photo_17.jpg">
+						<div class="mui-media-body">
+							<span>彩虹</span>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/tx_photo_18.jpg">
+						<div class="mui-media-body">
+							<span>蔡鑫</span>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/tx_photo_19.jpg">
+						<div class="mui-media-body">
+							<span>曹阳</span>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/tx_photo_20.jpg">
+						<div class="mui-media-body">
+							<span>昌超</span>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/tx_photo_21.jpg">
+						<div class="mui-media-body">
+							<span>超爸爸</span>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/tx_photo_22.jpg">
+						<div class="mui-media-body">
+							<span>陈艾玲</span>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/tx_photo_23.jpg">
+						<div class="mui-media-body">
+							<span>陈晨</span>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/tx_photo_24.jpg">
+						<div class="mui-media-body">
+							<span>晨光</span>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/tx_photo_25.jpg">
+						<div class="mui-media-body">
+							<span>陈红</span>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/tx_photo_26.jpg">
+						<div class="mui-media-body">
+							<span>陈丽</span>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/tx_photo_27.jpg">
+						<div class="mui-media-body">
+							<span>陈沫</span>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/tx_photo_28.jpg">
+						<div class="mui-media-body">
+							<span>陈十堰</span>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/tx_photo_29.jpg">
+						<div class="mui-media-body">
+							<span>陈爽</span>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/tx_photo_30.jpg">
+						<div class="mui-media-body">
+							<span>陈小文</span>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/tx_photo_31.jpg">
+						<div class="mui-media-body">
+							<span>陈艳</span>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/tx_photo_32.jpg">
+						<div class="mui-media-body">
+							<span>陈怡君</span>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/tx_photo_33.jpg">
+						<div class="mui-media-body">
+							<span>传奇</span>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/tx_photo_34.jpg">
+						<div class="mui-media-body">
+							<span>春兰老师</span>
+						</div>
+					</a>
+				</li>
+				
+				<li class="bg_line_row" id="D">D</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/tx_photo_35.jpg">
+						<div class="mui-media-body">
+							<span>邓聪</span>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/tx_photo_36.jpg">
+						<div class="mui-media-body">
+							<span>邓兰兰</span>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/tx_photo_37.jpg">
+						<div class="mui-media-body">
+							<span>丁彪</span>
+						</div>
+					</a>
+				</li>
+				
+			</ul>
+		<!--右侧首字母导航-->
+			<ul class="tx_right_bar">
+				<li><span class="mui-icon mui-icon-arrowthinup"><a href="#zhiding"></a></span></li>
+				<li><span class="mui-icon mui-icon-star"><a href="#xingbiao"></a></span></li>
+				<li><span>A<a href="#A"></a></span></li>
+				<li><span>B<a href="#B"></a></span></li>
+				<li><span>C<a href="#C"></a></span></li>
+				<li><span>D<a href="#D"></a></span></li>
+				<li><span>E</span></li>
+				<li><span>F</span></li>
+				<li><span>G</span></li>
+				<li><span>H</span></li>
+				<li><span>I</span></li>
+				<li><span>J</span></li>
+				<li><span>K</span></li>
+				<li><span>L</span></li>
+				<li><span>M</span></li>
+				<li><span>N</span></li>
+				<li><span>O</span></li>
+				<li><span>P</span></li>
+				<li><span>Q</span></li>
+				<li><span>R</span></li>
+				<li><span>S</span></li>
+				<li><span>T</span></li>
+				<li><span>U</span></li>
+				<li><span>V</span></li>
+				<li><span>W</span></li>
+				<li><span>X</span></li>
+				<li><span>Y</span></li>
+				<li><span>Z</span></li>
+				<li><span>#</span></li>
+			</ul>
+
+		<!--底部导航-->
+            <nav class="mui-bar mui-bar-tab">
+                <a class="mui-tab-item" href="index.html" onclick="window.location.href='index.html'">
+                    <span class="mui-icon mui-icon-chatbubble"></span>
+                    <span class="mui-tab-label">微信</span>
+                </a>
+                <a id="defaultTab" class="mui-tab-item mui-active" href="index_tongxunlu.html" onclick="window.location.href='index_tongxunlu.html'">
+                    <span class="mui-icon iconfont icon-tongxunlu1"></span>
+                    <span class="mui-tab-label">通讯录</span>
+                </a>
+                <a class="mui-tab-item" href="index_faxian.html" onclick="window.location.href='index_faxian.html'">
+                    <span class="mui-icon iconfont icon-faxiantansuoluopan"></span>
+                    <span class="mui-tab-label">发现</span>
+                </a>
+                <a class="mui-tab-item" href="index_home.html" onclick="window.location.href='index_home.html'">
+                    <span class="mui-icon mui-icon-person"></span>
+                    <span class="mui-tab-label">我</span>
+				</a>
+            </nav>
+		</div>
+
+        <!--下拉菜单-->
+        <div class="drop-down-menu">
+            <ul class="mui-table-view drop-menu">
+                <li class="mui-table-view-cell"><span class="iconfont icon-xiaoxi"></span>发起群聊</li>
+                <li class="mui-table-view-cell"><span class="iconfont icon-tianjiahaoyou"></span>添加朋友</li>
+                <li class="mui-table-view-cell"><span class="iconfont icon-saoyisao"></span>扫一扫</li>
+                <li class="mui-table-view-cell"><span class="iconfont icon-shoufukuan"></span>收付款</li>
+                <li class="mui-table-view-cell"><span class="iconfont icon-fankui"></span>帮助与反馈</li>
+            </ul>
+        </div>
+
+        <!--页面遮罩-->
+        <!--<div class="mui-backdrop" style="display: none;"></div>-->
+        <script src="js/jquery-3.2.1.js"></script>
+        <script>
+            //              function show() {
+            //                  var backdrop = document.getElementsByClassName('mui-backdrop');
+            //                  backdrop[0].style.display='block';
+            //              }
+            function drop_menu_show() {
+                $('.drop-down-menu').slideToggle(100);
+            }
+
+        </script>
+
+
+	</body>
+</html>

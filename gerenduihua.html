@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>腾讯微信模拟</title>
+		<script src="js/mui.min.js"></script>
+		<link href="css/mui.min.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="fonts/iconfont.css">
+		<style type="text/css">
+			*{ margin: 0; padding: 0; box-sizing: border-box; }
+			ul, li{ list-style: none; }
+			body,html{ font-family: "微软雅黑"; background: #eee; }
+
+        /*index 头部*/
+			.mui-bar-nav{ background: #373a41; position: relative; height: 60px; line-height: 60px; box-shadow: 0 1px 6px #545454; }
+			.mui-bar-nav span{ color: #fff; font-size: 14px; }
+			.mui-icon.fl_r{	float: right; }
+            .mui-icon.fl_l{	float: left; }
+			.mui-bar-nav.mui-bar .mui-icon{	margin-right: 0; font-size: 36px; padding-top: 12px; }
+            .mui-icon.iconfont.icon-fanhui{ font-size: 28px; padding-top: 6px; border-right: 1px solid #2e3138; margin-right: 20px; margin-top: 10px; padding-bottom: 4px; position: relative; }
+            .mui-icon.iconfont.icon-fanhui a{ position: absolute; display: block; width: 100%; height: 100%; left: 6px; top: 0; }
+            .mui-icon.iconfont.icon-wo1{ font-size: 32px; padding-top: 14px; }
+        /*细节优化*/
+
+            .mui-table-view{ margin: 60px 0 50px; background: #eee; overflow: hidden; }
+            .mui-table-view:after,.mui-table-view:before{ opacity: 0; }
+            .cur_time{ text-align: center; width: 100%; margin-top: 10px; }
+            .cur_time span{ width: auto; display: inline-block; padding: 2px 10px; font-size: 14px; border-radius: 3px; background: #ccc; }
+            .news_box{ padding: 10px 0; overflow: hidden; }
+            .news_box .news_new{ max-width: 70%; float: right; padding: 1% 3%; margin-right: 15px; border-radius: 5px; background: #a0e85a; border: 1px solid #b4d59d; position: relative; text-align: justify; font-size: 14px; }
+            .news_box .news_new:after{ content: ''; display: block; width: 0; height: 0; border: 5px solid; border-color: rgba(0,0,0,0) rgba(0,0,0,0) rgba(0,0,0,0) #a0e85a; border-radius: 3px; position: absolute; right: -10px; top: 50%; margin-top: -5px; }
+            .news_box .news_user_pic{ width: 16%; float: right; }
+            .news_box .news_user_pic img{ width: 80%; display: block; }
+			
+		/*个人对话框底部导航优化*/
+		.mui-bar-tab .icon-yuyingxiaoxi{ width: 12%; line-height: 30px; text-align: center; }
+		.mui-bar-tab .search_txt_span{ display: inline-block; float: left; width: 68%; height: 100%; text-align: center; }
+		.mui-bar-tab .search_txt{ width: 100%; height: 40px; padding: 0; padding-top: 8px; background: none; margin: 0; border: none; border-bottom: 1px solid #ccc; }
+		.mui-bar-tab .icon-biaoqing{ width: 10%; line-height: 30px; text-align: center; }
+		.mui-bar-tab .icon-gengduo{ width: 10%; line-height: 30px; text-align: center; font-size: 27px; }
+		.mui-bar-tab .mui-icon{ color: #5f5f5f; }
+		</style>
+		
+		<script type="text/javascript" charset="utf-8">
+			mui.init();
+		</script>
+	
+	</head>
+	
+	<body>
+		<div>
+		<!--头部导航栏-->
+			<header class="mui-bar mui-bar-nav" style="position: fixed;">
+                <span class="mui-icon iconfont icon-fanhui fl_l"><a href="javascript:history.back(-1);"></a></span>
+				<span class="mui-icon iconfont icon-wo1 fl_r"></span>
+				<span class="fl_l" style="font-size: 16px;">凌波漫步</span>
+			</header>
+			
+		<!--个人对话页面-->
+			<ul class="mui-table-view">
+                <p class="cur_time"><span>2017年10月25日18:35</span></p>
+                <div class="news_box">
+                    <div class="news_user_pic"><img src="img/home_photo_01.jpg" alt=""></div>
+                    <div class="news_new">让我再看你一眼，山城——重庆</div>
+                </div>
+                <p class="cur_time"><span>2017年10月25日18</span></p>
+                <div class="news_box">
+                    <div class="news_user_pic"><img src="img/home_photo_01.jpg" alt=""></div>
+                    <div class="news_new">下班前提醒蓉儿戴眼镜
+                    </div>
+                </div>
+                <div class="news_box">
+                    <div class="news_user_pic"><img src="img/home_photo_01.jpg" alt=""></div>
+                    <div class="news_new">公司地址：江西省南昌市高新开发区 紫阳大道1216号新力方
+                    </div>
+                </div>
+                <div class="news_box">
+                    <div class="news_user_pic"><img src="img/home_photo_01.jpg" alt=""></div>
+                    <div class="news_new">赵总   把你微信二维码发我一下   这边做北京聚梦招聘的海报  上面需要放联系方式    你的电话是18537398917吗
+                    </div>
+                </div>
+                <p class="cur_time"><span>2017年10月25日18:35</span></p>
+                <div class="news_box">
+                    <div class="news_user_pic"><img src="img/home_photo_01.jpg" alt=""></div>
+                    <div class="news_new">江西省南昌市高新开发区创新二路申通快递
+                    </div>
+                </div>
+                <div class="news_box">
+                    <div class="news_user_pic"><img src="img/home_photo_01.jpg" alt=""></div>
+                    <div class="news_new">风静  阳光照   心情很好
+                    </div>
+                </div>
+                <p class="cur_time"><span>2017年10月25日18:35</span></p>
+                <div class="news_box">
+                    <div class="news_user_pic"><img src="img/home_photo_01.jpg" alt=""></div>
+                    <div class="news_new">我们都应该无比勇敢，勇敢是敢于一个人旅行，敢做过山车跳楼机，敢只身一人到陌生的城市生活，敢被喜欢被讨厌，敢说到做到，敢面对现实，敢做出改变，敢对自己的决定负责，敢一个人很快乐。敢于做过去的自己想象不到的我 
+                    </div>
+                </div>
+                <p class="cur_time"><span>2018年1月5日18:35</span></p>
+                <div class="news_box">
+                    <div class="news_user_pic"><img src="img/home_photo_01.jpg" alt=""></div>
+                    <div class="news_new">做自己想做的事  一直在路上  一定会是精神满满 
+                    </div>
+                </div>
+                <div class="news_box">
+                    <div class="news_user_pic"><img src="img/home_photo_01.jpg" alt=""></div>
+                    <div class="news_new">没精神说明还是能力配不上心里想的   或者想做什么事 又畏手畏脚  
+                    </div>
+                </div>
+                <div class="news_box">
+                    <div class="news_user_pic"><img src="img/home_photo_01.jpg" alt=""></div>
+                    <div class="news_new">wifi密码：tzm19961030
+                    </div>
+                </div>
+                <p class="cur_time"><span>昨天 21:21</span></p>
+                <div class="news_box">
+                    <div class="news_user_pic"><img src="img/home_photo_01.jpg" alt=""></div>
+                    <div class="news_new">公司楼上到地铁站买票处10分钟足够   地铁16分钟   骑单车过去到进站口12分钟   总共需要38分钟
+                    </div>
+                </div>
+                <div class="news_box">
+                    <div class="news_user_pic"><img src="img/home_photo_01.jpg" alt=""></div>
+                    <div class="news_new">蓉儿爸爸生日11月19    蓉儿妈妈生日3月10
+                    </div>
+                </div>
+                <p class="cur_time"><span>9:26</span></p>
+                <div class="news_box">
+                    <div class="news_user_pic"><img src="img/home_photo_01.jpg" alt=""></div>
+                    <div class="news_new">你坐地铁  差不多九点半的时候从家里出发去光谷广场应该十点左右   坐地铁到武昌火车站    从C口出来   估计差不多十点半左右    往右边看基本就能看到德克士    是一个类似麦当劳的店   直接里边坐着等我    我会在你对面出来
+                    </div>
+                </div>
+			</ul>
+			
+		
+        <!--底部导航-->
+            <nav class="mui-bar mui-bar-tab">
+            	<span class="mui-icon iconfont icon-yuyingxiaoxi fl_l" ><a href=""></a></span>
+            	<span class="search_txt_span"><input type="text" class="search_txt"></span>
+            	<span class="mui-icon iconfont icon-biaoqing fl_l"><a href=""></a></span>
+            	<span class="mui-icon iconfont icon-gengduo fl_l"><a href=""></a></span>
+           	</nav>
+
+		
+	</body>
+</html>

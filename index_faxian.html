@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>腾讯微信模拟</title>
+		<script src="js/mui.min.js"></script>
+		<link href="css/mui.min.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="fonts/iconfont.css">
+		<style type="text/css">
+			*{ margin: 0; padding: 0; box-sizing: border-box; }
+			ul, li{ list-style: none; }
+			body,html{ font-family: "微软雅黑"; background: #eee; }
+			
+		/*index 头部*/
+            .mui-bar-nav{ background: #373a41; position: relative; height: 60px; line-height: 60px; box-shadow: 0 1px 6px #545454; }
+            .mui-bar-nav span{ color: #fff; font-size: 14px; }
+            .mui-icon.fl_r{	float: right; }
+            .mui-bar-nav.mui-bar .mui-icon{	margin-right: 0; font-size: 36px; padding-top: 12px; }
+            .mui-icon.mui-icon-search.fl_r{ font-size: 24px; padding-top: 18px; }
+            .mui-icon.mui-icon-search{ font-size: 16px; line-height: 24px; }
+            .mui-media-body{ font-size: 16px; color: #444; line-height: 42px; }
+		/*底部导航*/
+			.icon-tongxunlu.iconfont{ font-size: 28px; }
+            .mui-bar-tab .mui-tab-item.mui-active { color: #2ba246; }
+
+        /*细节优化*/
+			.mui-table-view-cell:after{ right: 20px; background-color: #e6e6e6; }
+			.mui-table-view-cell.ccc:after{	background-color: #ccc; }
+			.bg_line_row{ height: 10px; padding-left: 4%;	background: #ebebeb; line-height: 26px; font-size: 14px; color: #999; }
+			.mui-table-view{ margin-bottom: 50px; margin-top: 60px; }
+            .mui-icon.iconfont.icon-faxian{ height: 22px; font-size: 20px; vertical-align: -3px; }
+
+        /*下拉列表菜单*/
+            .drop-down-menu{ width: 52%; background: #373a41; position: fixed; right: 10px; top: 60px; box-shadow: 0 1px 15px #717171; display: none; }
+            .mui-table-view.drop-menu{ background: #373a41; color: #fff; margin: 0; }
+            .mui-table-view.drop-menu li{ font-size: 16px; padding: 16px 15px; }
+            .mui-table-view.drop-menu span{ font-size: 22px; margin: 0 15px 0 5px; }
+            span.iconfont.icon-tianjiahaoyou{ font-size: 30px; margin: 0 15px 0 2px; line-height: 22px; vertical-align: -4px; }
+            
+            
+		/*自己的样式叠加*/
+			.mui-table-view-cell.mui-media{ padding: 3% 4%; }
+        </style>
+		
+		<script type="text/javascript" charset="utf-8">
+			mui.init();
+		</script>
+
+	</head>
+
+	<body>
+		<div>
+		<!--头部导航栏-->
+			<header class="mui-bar mui-bar-nav" style="position: fixed;">
+			    <span class="bar_nav_txt_left">微信</span>
+				<span class="mui-icon mui-icon-plusempty fl_r" onclick="drop_menu_show()"></span>
+				<span class="mui-icon mui-icon-search fl_r" onclick="window.location.href='index_search.html'"></span>
+			</header>
+		<!--列表-->
+			<ul class="mui-table-view">
+				<li class="bg_line_row"></li>
+				<li class="mui-table-view-cell mui-media" id="zhiding">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/fx_photo_01.jpg">
+						<div class="mui-media-body">
+							<span>朋友圈</span>
+						</div>
+					</a>
+				</li>
+				<li class="bg_line_row"></li>
+				<li class="mui-table-view-cell mui-media" id="zhiding">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/fx_photo_02.jpg">
+						<div class="mui-media-body">
+							<span>扫一扫</span>
+						</div>
+					</a>
+				</li>
+				<li class="bg_line_row"></li>
+				<li class="mui-table-view-cell mui-media" id="zhiding">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/fx_photo_03.jpg">
+						<div class="mui-media-body">
+							<span>看一看</span>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media" id="zhiding">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/fx_photo_04.jpg">
+						<div class="mui-media-body">
+							<span>搜一搜</span>
+						</div>
+					</a>
+				</li>
+				<li class="bg_line_row"></li>
+				<li class="mui-table-view-cell mui-media" id="zhiding">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/fx_photo_05.jpg">
+						<div class="mui-media-body">
+							<span>购物</span>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media" id="zhiding">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/fx_photo_06.jpg">
+						<div class="mui-media-body">
+							<span>游戏</span>
+						</div>
+					</a>
+				</li>
+				<li class="bg_line_row"></li>
+				<li class="mui-table-view-cell mui-media" id="zhiding">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/fx_photo_07.jpg">
+						<div class="mui-media-body">
+							<span>小程序</span>
+						</div>
+					</a>
+				</li>
+
+			</ul>
+		<!--底部导航-->
+            <nav class="mui-bar mui-bar-tab">
+                <a class="mui-tab-item" href="index.html" onclick="window.location.href='index.html'">
+                    <span class="mui-icon mui-icon-chatbubble"></span>
+                    <span class="mui-tab-label">微信</span>
+                </a>
+                <a class="mui-tab-item" href="index_tongxunlu.html" onclick="window.location.href='index_tongxunlu.html'">
+                    <span class="mui-icon iconfont icon-tongxunlu"></span>
+                    <span class="mui-tab-label">通讯录</span>
+                </a>
+                <a id="defaultTab" class="mui-tab-item mui-active" href="index_faxian.html" onclick="window.location.href='index_faxian.html'">
+                    <span class="mui-icon iconfont icon-faxian"></span>
+                    <span class="mui-tab-label">发现</span>
+                </a>
+                <a class="mui-tab-item" href="index_home.html" onclick="window.location.href='index_home.html'">
+                    <span class="mui-icon mui-icon-person"></span>
+                    <span class="mui-tab-label">我</span>
+				</a>
+            </nav>
+		</div>
+
+        <!--下拉菜单-->
+        <div class="drop-down-menu">
+            <ul class="mui-table-view drop-menu">
+                <li class="mui-table-view-cell"><span class="iconfont icon-xiaoxi"></span>发起群聊</li>
+                <li class="mui-table-view-cell"><span class="iconfont icon-tianjiahaoyou"></span>添加朋友</li>
+                <li class="mui-table-view-cell"><span class="iconfont icon-saoyisao"></span>扫一扫</li>
+                <li class="mui-table-view-cell"><span class="iconfont icon-shoufukuan"></span>收付款</li>
+                <li class="mui-table-view-cell"><span class="iconfont icon-fankui"></span>帮助与反馈</li>
+            </ul>
+        </div>
+
+        <!--页面遮罩-->
+        <!--<div class="mui-backdrop" style="display: none;"></div>-->
+        <script src="js/jquery-3.2.1.js"></script>
+        <script>
+            //              function show() {
+            //                  var backdrop = document.getElementsByClassName('mui-backdrop');
+            //                  backdrop[0].style.display='block';
+            //              }
+            function drop_menu_show() {
+                $('.drop-down-menu').slideToggle(100);
+            }
+
+        </script>
+
+
+	</body>
+</html>

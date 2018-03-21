@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>腾讯微信模拟</title>
+		<script src="js/mui.min.js"></script>
+		<link href="css/mui.min.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="fonts/iconfont.css">
+		<style type="text/css">
+			*{ margin: 0; padding: 0; box-sizing: border-box; }
+			ul, li{ list-style: none; }
+			body,html{ font-family: "微软雅黑"; background: #eee; }
+
+        /*index 头部*/
+			.mui-bar-nav{ background: #373a41; position: relative; height: 60px; line-height: 60px; box-shadow: 0 1px 6px #545454; }
+			.mui-bar-nav span{ color: #fff; font-size: 14px; }
+			.mui-icon.fl_r{	float: right; }
+			.mui-bar-nav.mui-bar .mui-icon{	margin-right: 0; font-size: 36px; padding-top: 12px; }
+            .mui-icon.mui-icon-search.fl_r{ font-size: 24px; padding-top: 18px; }
+			.mui-icon.mui-icon-search{ font-size: 16px; line-height: 24px; }
+
+        /*细节优化*/
+	       	.mui-media-body span:nth-of-type(1){ font-size: 14px; }
+	       	.mui-media-body .mui-ellipsis{ font-size: 12px; }
+			.mui-media-body span.right{ float: right; color: #666; font-size: 12px; }
+            .icon-tongxunlu.iconfont{ font-size: 28px; }
+            .icon-faxiantansuoluopan.iconfont{ font-size: 18px; padding: 4px 0px 0px; }
+            .mui-bar-tab .mui-tab-item.mui-active { color: #2ba246; }
+            .mui-table-view-cell p{ width: 78%; }
+            .mui-table-view-cell:after{ left: 0; }
+            .mui-table-view{ margin-bottom: 50px; margin-top: 60px; }
+
+            .mui-icon.iconfont.icon-xiaoxi{ font-size: 22px; }
+        /*下拉列表菜单*/
+            .drop-down-menu{ width: 52%; background: #373a41; position: fixed; right: 10px; top: 60px; box-shadow: 0 1px 15px #717171; display: none; }
+            .mui-table-view.drop-menu{ background: #373a41; color: #fff; margin: 0; }
+            .mui-table-view.drop-menu li{ font-size: 16px; padding: 16px 15px; }
+            .mui-table-view.drop-menu span{ font-size: 22px; margin: 0 15px 0 5px; }
+            span.iconfont.icon-tianjiahaoyou{ font-size: 30px; margin: 0 15px 0 2px; line-height: 22px; vertical-align: -4px; }
+		
+				
+		/*自己的样式叠加*/
+		.mui-table-view-cell.mui-media{ padding: 3% 4%; }
+		
+		</style>
+		
+		<script type="text/javascript" charset="utf-8">
+			mui.init();
+		</script>
+	
+	</head>
+	
+	<body>
+		<div>
+		<!--头部导航栏-->
+			<header class="mui-bar mui-bar-nav" style="position: fixed;">
+			    <span class="bar_nav_txt_left">微信</span>
+				<span class="mui-icon mui-icon-plusempty fl_r" onclick="drop_menu_show()"></span>
+				<span class="mui-icon mui-icon-search fl_r" onclick="window.location.href='index_search.html'"></span>
+			</header>
+			
+		<!--消息列表-->
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/pic_photo1.jpg">
+						<div class="mui-media-body">
+							<span>微信运动</span>
+							<span class="right">星期五</span>
+							<p class='mui-ellipsis'>能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="gerenduihua.html">
+						<img class="mui-media-object mui-pull-left" src="img/pic_photo2.jpg">
+						<div class="mui-media-body">
+							<span>凌波漫步</span>
+							<span class="right">星期六</span>
+							<p class='mui-ellipsis'>想要这样一间小木屋，夏天挫冰吃瓜，冬天围炉取暖.</p>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/pic_photo3.jpg">
+						<div class="mui-media-body">
+							<span>蓉儿</span>
+							<span class="right">昨天17:50</span>
+							<p class='mui-ellipsis'>烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/pic_photo4.jpg">
+						<div class="mui-media-body">
+							<span>公众平台安全助手</span>
+							<span class="right">昨天17:00</span>
+							<p class='mui-ellipsis'>烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/pic_photo5.jpg">
+						<div class="mui-media-body">
+							<span>微信公众平台</span>
+							<span class="right">昨天17:50</span>
+							<p class='mui-ellipsis'>[很有爱的光头强]</p>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/pic_photo9.jpg">
+						<div class="mui-media-body">
+							<span>周豆</span>
+							<span class="right">星期二</span>
+							<p class='mui-ellipsis'>回见啊</p>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/pic_photo6.jpg">
+						<div class="mui-media-body">
+							<span>微信支付</span>
+							<span class="right">昨天17:10</span>
+							<p class='mui-ellipsis'>零钱到账提醒</p>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/pic_photo7.jpg">
+						<div class="mui-media-body">
+							<span>京东支付</span>
+							<span class="right">昨天12:37</span>
+							<p class='mui-ellipsis'>支付成功提醒</p>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/pic_photo8.jpg">
+						<div class="mui-media-body">
+							<span>小徐徐徐徐</span>
+							<span class="right">星期五</span>
+							<p class='mui-ellipsis'>跑题了</p>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/pic_photo10.jpg">
+						<div class="mui-media-body">
+							<span>王二狗</span>
+							<span class="right">星期四</span>
+							<p class='mui-ellipsis'>我通过了你的朋友验证请求，现在我们可以开始聊天了</p>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/pic_photo4.jpg">
+						<div class="mui-media-body">
+							<span>公众平台安全助手</span>
+							<span class="right">昨天17:00</span>
+							<p class='mui-ellipsis'>烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/pic_photo5.jpg">
+						<div class="mui-media-body">
+							<span>微信公众平台</span>
+							<span class="right">昨天17:50</span>
+							<p class='mui-ellipsis'>[很有爱的光头强]</p>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/pic_photo9.jpg">
+						<div class="mui-media-body">
+							<span>周豆</span>
+							<span class="right">星期二</span>
+							<p class='mui-ellipsis'>回见啊</p>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/pic_photo6.jpg">
+						<div class="mui-media-body">
+							<span>微信支付</span>
+							<span class="right">昨天17:10</span>
+							<p class='mui-ellipsis'>零钱到账提醒</p>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/pic_photo7.jpg">
+						<div class="mui-media-body">
+							<span>京东支付</span>
+							<span class="right">昨天12:37</span>
+							<p class='mui-ellipsis'>支付成功提醒</p>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/pic_photo8.jpg">
+						<div class="mui-media-body">
+							<span>小徐徐徐徐</span>
+							<span class="right">星期五</span>
+							<p class='mui-ellipsis'>跑题了</p>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/pic_photo4.jpg">
+						<div class="mui-media-body">
+							<span>公众平台安全助手</span>
+							<span class="right">昨天17:00</span>
+							<p class='mui-ellipsis'>烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/pic_photo5.jpg">
+						<div class="mui-media-body">
+							<span>微信公众平台</span>
+							<span class="right">昨天17:50</span>
+							<p class='mui-ellipsis'>[很有爱的光头强]</p>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/pic_photo9.jpg">
+						<div class="mui-media-body">
+							<span>周豆</span>
+							<span class="right">星期二</span>
+							<p class='mui-ellipsis'>回见啊</p>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/pic_photo6.jpg">
+						<div class="mui-media-body">
+							<span>微信支付</span>
+							<span class="right">昨天17:10</span>
+							<p class='mui-ellipsis'>零钱到账提醒</p>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/pic_photo7.jpg">
+						<div class="mui-media-body">
+							<span>京东支付</span>
+							<span class="right">昨天12:37</span>
+							<p class='mui-ellipsis'>支付成功提醒</p>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/pic_photo8.jpg">
+						<div class="mui-media-body">
+							<span>小徐徐徐徐</span>
+							<span class="right">星期五</span>
+							<p class='mui-ellipsis'>跑题了</p>
+						</div>
+					</a>
+				</li>
+			</ul>
+
+        <!--底部导航-->
+            <nav class="mui-bar mui-bar-tab">
+                <a id="defaultTab" class="mui-tab-item mui-active" href="index.html" onclick="window.location.href='index.html'">
+                    <span class="mui-icon iconfont icon-xiaoxi"></span>
+                    <span class="mui-tab-label">微信</span>
+                </a>
+                <a class="mui-tab-item" href="index_tongxunlu.html" onclick="window.location.href='index_tongxunlu.html'">
+                    <span class="mui-icon iconfont icon-tongxunlu"></span>
+                    <span class="mui-tab-label">通讯录</span>
+                </a>
+                <a class="mui-tab-item" href="index_faxian.html" onclick="window.location.href='index_faxian.html'">
+                    <span class="mui-icon iconfont icon-faxiantansuoluopan"></span>
+                    <span class="mui-tab-label">发现</span>
+                </a>
+                <a class="mui-tab-item" href="index_home.html" onclick="window.location.href='index_home.html'">
+                    <span class="mui-icon mui-icon-person"></span>
+                    <span class="mui-tab-label">我</span>
+                </a>
+            </nav>
+		</div>
+
+		<!--下拉菜单-->
+            <div class="drop-down-menu">
+                <ul class="mui-table-view drop-menu">
+                    <li class="mui-table-view-cell"><span class="iconfont icon-xiaoxi"></span>发起群聊</li>
+                    <li class="mui-table-view-cell"><span class="iconfont icon-tianjiahaoyou"></span>添加朋友</li>
+                    <li class="mui-table-view-cell"><span class="iconfont icon-saoyisao"></span>扫一扫</li>
+                    <li class="mui-table-view-cell"><span class="iconfont icon-shoufukuan"></span>收付款</li>
+                    <li class="mui-table-view-cell"><span class="iconfont icon-fankui"></span>帮助与反馈</li>
+                </ul>
+            </div>
+
+        <!--页面遮罩-->
+        <!--<div class="mui-backdrop" style="display: none;"></div>-->
+        <script src="js/jquery-3.2.1.js"></script>
+        <script>
+//              function show() {
+//                  var backdrop = document.getElementsByClassName('mui-backdrop');
+//                  backdrop[0].style.display='block';
+//              }
+                function drop_menu_show() {
+                    $('.drop-down-menu').slideToggle(100);
+                }
+
+        </script>
+		
+	</body>
+</html>
